@@ -6,6 +6,15 @@ function myReact() {
   const [show, setShow] = useState(false)
   const [color, setColor] = useState("green")
   const [like, setLike] = useState(false)
+  const [text, setText] = useState("")
+  const [dark, setDark] = useState(false)
+  const [emoji, setEmoji] = useState("")
+
+  const theme = {
+    background: dark ? "#333" : "#fff",
+    color: dark ? "#fff" : "#000",
+    height: "50vh",
+  };
 
 
   return <div className="main">
@@ -33,6 +42,26 @@ function myReact() {
       <button onClick={() => {setLike(!like)}}>
         {like ? "💖 Liked" : "🤍 Like"}
       </button>
+    </div>
+    <br />
+
+    <div className="text">
+      <p>Your text: {text}</p>
+      <input type="text" value={text} onChange={(e) => {setText(e.target.value)}} />
+    </div>
+    <br />
+
+    <div className="themed" style={theme}>
+      <button onClick={() => {setDark(!dark)}}>Change to {dark ? "Light" : "Dark"} Mode</button>
+    </div>
+    <br />
+
+    <div className="emoji-selector">
+      <p>What's your current mood?</p>
+      <button onClick={() => setEmoji("😊")}>Happy</button>
+      <button onClick={() => setEmoji("😢")}>Sad</button>
+      <button onClick={() => setEmoji("😡")}>Angry</button>
+      <p>Here is an emoji that best suits your emotion: {emoji}</p>
     </div>
   </div>
 }
