@@ -63,6 +63,9 @@ function myReact() {
       <button onClick={() => setEmoji("😡")}>Angry</button>
       <p>Here is an emoji that best suits your emotion: {emoji}</p>
     </div>
+    <br />
+
+    
   </div>
 }
 
